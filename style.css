@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media only screen and (max-width: 992px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    body {
+        background-color: palegoldenrod;
+    }
+}
+
+[class*="col-"] {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    padding: 30px;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    /*border: 1px solid lightblue;*/
+}
+
+/*.row{*/
+/*    display: flex;*/
+/*    flex-flow: row wrap;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    border: 1px solid red;*/
+
+body {
+    margin-top: 40px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+.f {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.center{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+}
+
+ /*hello*/
+
+.buttons {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.letterButton{
+    width: 40px;
+    height: 40px;
+    font-size: 15pt;
+    font-weight: 400;
+    margin: 5px;
+    color: red;
+    font-family: 'Barrio', cursive;
+    background-color: #1a1a1a;
+}
+
+.clueButton {
+    width: 70px;
+    height: 70px;
+    font-size: 15pt;
+    font-weight: 200;
+    margin: 5px;
+    color: red;
+    font-family: 'Barrio', cursive;
+    background-color: #1a1a1a;
+}
+
+img {
+    width: 580px;
+    margin: 10px;
+}
+
+.word {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 200px;
+    padding-bottom: 10px;
+}

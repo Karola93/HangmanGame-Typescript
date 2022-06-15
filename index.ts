@@ -82,12 +82,12 @@ const answerFunction = (): void => {
 const maxWrong = document.getElementsByClassName("maxWrong")[0]! as HTMLElement;
 maxWrong.innerHTML = `${maxWrongNumber}`;
 
-const guessWord = () => {
+const guessWord = (): void => {
     wordStatusFirst = answer.toUpperCase().split('').map(letter => letter.replace(letter,`<p>_</p>`) ).join('');
     document.getElementsByClassName('word')[0].innerHTML = wordStatusFirst;
 }
 
-const createAlphabetUi = () => {
+const createAlphabetUi = (): void => {
     const myButtons = document.getElementsByClassName('buttons');
     for (const letter of alphabet) {
         const p = document.createElement('p');
@@ -96,12 +96,12 @@ const createAlphabetUi = () => {
     }
 }
 
-const toUpperCase = () => {
+const toUpperCase = (): void => {
     const upper = upperCase.innerText.toUpperCase();
     upperCase.innerHTML = `<strong> ${upper} </strong>`;
 };
 
-const reset = () => {
+const reset = (): void => {
     playAgainBtn.addEventListener('click', () => {
         image.innerHTML = `<img src=./images/letsgo.png alt="Start the game">`;
         mistakes.innerText = '0';

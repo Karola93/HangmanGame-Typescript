@@ -1,12 +1,14 @@
-const getClue = document.getElementById('clue')! as HTMLElement;
-const clue = document.getElementsByClassName('clue')[0]! as HTMLElement;
-const letterBtns = document.getElementsByClassName('letterButton')! as HTMLCollectionOf<HTMLElement>;
-const mistakes = document.getElementsByClassName("mistakes")[0]! as HTMLElement;
-const image = document.getElementsByClassName('image')[0]! as HTMLElement;
-const playAgainBtn = document.getElementById('reset')! as HTMLElement;
-const upperCase = document.querySelector('.upperCase')! as HTMLElement;
+type HL =  HTMLElement;
 
-const kindsOfSports = ['Aerobics', 'Bowling', 'Rowing', 'Curling', 'Wrestling'];
+const getClue: HL = document.getElementById('clue');
+const clue: HTMLCollection  = document.getElementsByClassName('clue');
+const letterBtns: HTMLCollectionOf<Element> = document.getElementsByClassName('letterButton');
+const mistakes: HTMLCollection = document.getElementsByClassName("mistakes");
+const image: HTMLCollection = document.getElementsByClassName('image');
+const playAgainBtn: HL = document.getElementById('reset');
+const upperCase: HL = document.querySelector('.upperCase');
+
+const kindsOfSports: string[] = ['Aerobics', 'Bowling', 'Rowing', 'Curling', 'Wrestling'];
 let answer = '';
 let maxWrongNumber = 10;
 let wrongAnswers = 0;
@@ -28,23 +30,23 @@ const randomWord = (): void => {
 const answerFunction = (): void => {
     if (answer === kindsOfSports[0]) {
         getClue.addEventListener('click', () => {
-            clue.innerHTML = aerobicsClue;
+            clue[0].innerHTML = aerobicsClue;
         })
     } else if (answer === kindsOfSports[1]) {
         getClue.addEventListener('click', () => {
-            clue.innerHTML = bowlingClue;
+            clue[0].innerHTML = bowlingClue;
         })
     } else if (answer === kindsOfSports[2]) {
         getClue.addEventListener('click', () => {
-            clue.innerHTML = rowingClue;
+            clue[0].innerHTML = rowingClue;
         })
     } else if (answer === kindsOfSports[3]) {
         getClue.addEventListener('click', () => {
-            clue.innerHTML = curlingClue;
+            clue[0].innerHTML = curlingClue;
         })
     } else if (answer === kindsOfSports[4]) {
         getClue.addEventListener('click', () => {
-            clue.innerHTML = wrestlingClue;
+            clue[0].innerHTML = wrestlingClue;
         });
     }
     const wordArr = answer.toUpperCase().split('');
@@ -55,24 +57,24 @@ const answerFunction = (): void => {
     for (const btn of letterBtns) {
         btn.addEventListener('click', () => {
             for (let i = 0; i < newAnswer.length; i++) {
-                if (wordArr[i] === btn.innerText) {
-                    emptyArr[wordArr.indexOf(btn.innerText)] = btn.innerText;
+                if (wordArr[i] === btn.innerHTML) {
+                    emptyArr[wordArr.indexOf(btn.innerHTML)] = btn.innerHTML;
                     document.getElementsByClassName('word')[0].innerHTML = emptyArr.map(l => l.replace(l, `<p>${l}</p>`)).join('');
                 }
             }
-            if (!wordArr.includes(btn.innerText)) {
+            if (!wordArr.includes(btn.innerHTML)) {
                 wrongAnswers += 1;
                 let numberToString = wrongAnswers.toString();
                 if (wrongAnswers <= 10) {
-                    mistakes.innerText = numberToString;
-                    image.innerHTML = `<img src=./images/${numberToString}.png alt="Hang Man Image">`;
+                    mistakes[0].innerHTML = numberToString;
+                    image[0].innerHTML = `<img src=./images/${numberToString}.png alt="Hang Man Image">`;
                 } else {
-                    mistakes.innerText = '10';
-                    image.innerHTML = `<img src=./images/over.png alt="Game over">`;
+                    mistakes[0].innerHTML = '10';
+                    image[0].innerHTML = `<img src=./images/over.png alt="Game over">`;
                 }
             }
             if (!document.getElementsByClassName('word')[0].innerHTML.split('').includes(`_`)){
-                image.innerHTML = `<img src=./images/winner.png alt="Winner">`;
+                image[0].innerHTML = `<img src=./images/winner.png alt="Winner">`;
             }
         })
     }
@@ -103,8 +105,8 @@ const toUpperCase = (): void => {
 
 const reset = (): void => {
     playAgainBtn.addEventListener('click', () => {
-        image.innerHTML = `<img src=./images/letsgo.png alt="Start the game">`;
-        mistakes.innerText = '0';
+        image[0].innerHTML = `<img src=./images/letsgo.png alt="Start the game">`;
+        mistakes[0].innerHTML = '0';
         guessWord();
     })
 }
